@@ -27,6 +27,18 @@ Char&	Char::operator=(const Char& ref)
 	return (*this);
 }
 
+bool Char::isOverFlow(char *argv1)
+{
+	long double num = std::strtold(argv1, NULL);
+
+	if (num < std::numeric_limits<char>::min() ||  num > std::numeric_limits<char>::max())
+	{
+		std::cout<<"char: Can't convert. Overflow."<<std::endl;
+		return true;
+	}
+	return false;
+}
+
 void	Char::convertToActual(const std::string &literal)
 {
 	if (this->getType() == CHAR)
@@ -39,6 +51,7 @@ void	Char::convertToActual(const std::string &literal)
 		std::cout << "char: Impossible" << std::endl;
 		return ;
 	}
+
 	char	c = static_cast<char>(std::atoi(literal.c_str()));
 	if (std::isprint(c))
 		std::cout << "char: " << c << std::endl;

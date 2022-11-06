@@ -1,8 +1,8 @@
 #include "Float.hpp"
+#include <cmath>
 
 Float::Float()
 {
-
 }
 
 Float::Float(std::string& literal)
@@ -12,19 +12,34 @@ Float::Float(std::string& literal)
 
 Float::~Float()
 {
-
 }
 
 Float::Float(const Float& ref)
 	:Converter(ref)
 {
-
 }
 
 Float&	Float::operator=(const Float& ref)
 {
 	Converter::operator=(ref);
 	return (*this);
+}
+
+bool Float::isOverFlow(char *argv1)
+{
+	long double num = std::strtold(argv1, NULL);
+
+	if (isinf(num))
+	{
+		return false;
+	}
+
+	if (num < -(std::numeric_limits<float>::max()) ||  num > std::numeric_limits<float>::max())
+	{
+		std::cout<<"float: Can't convert. Overflow."<<std::endl;
+		return true;
+	}
+	return false;
 }
 
 void	Float::convertToActual(const std::string &literal)

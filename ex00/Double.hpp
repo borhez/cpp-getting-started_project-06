@@ -4,6 +4,7 @@
 # include <string>
 # include <cmath>
 # include "Converter.hpp"
+# include <limits>
 
 class	Double : public Converter
 {
@@ -15,7 +16,7 @@ class	Double : public Converter
 		~Double();
 		Double(const Double& ref);
 		Double&	operator=(const Double& ref);
-
+		virtual bool	isOverFlow(char *argv1);
 		virtual void	convertToActual(const std::string& literal);
 };
 

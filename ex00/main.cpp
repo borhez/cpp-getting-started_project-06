@@ -3,8 +3,7 @@
 #include "Double.hpp"
 #include "Float.hpp"
 #include "Int.hpp"
-
-#include <iomanip>
+#include <limits>
 
 int	main(int argc, char **argv)
 {
@@ -30,9 +29,16 @@ int	main(int argc, char **argv)
 	floatConverter.setType(str);
 	intConverter.setType(str);
 
-	charConverter.convertToActual(str);
-	intConverter.convertToActual(str);
-	floatConverter.convertToActual(str);
-	doubleConverter.convertToActual(str);
+	if(!c.isOverFlow(argv[1]))
+		charConverter.convertToActual(str);
+	
+	if(!i.isOverFlow(argv[1]))	
+		intConverter.convertToActual(str);
+
+	if(!f.isOverFlow(argv[1]))	
+		floatConverter.convertToActual(str);
+
+	if(!d.isOverFlow(argv[1]))	
+		doubleConverter.convertToActual(str);
 	return (0);
 }

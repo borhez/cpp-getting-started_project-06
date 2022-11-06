@@ -3,6 +3,7 @@
 
 # include <string>
 # include "Converter.hpp"
+# include <limits>
 
 class	Int : public Converter
 {
@@ -14,7 +15,7 @@ class	Int : public Converter
 		~Int();
 		Int(const Int& ref);
 		Int&	operator=(const Int& ref);
-
+		virtual bool	isOverFlow(char *argv1);
 		virtual void	convertToActual(const std::string& literal);
 };
 

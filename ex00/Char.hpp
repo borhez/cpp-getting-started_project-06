@@ -3,6 +3,7 @@
 
 # include <string>
 # include "Converter.hpp"
+# include <limits>
 
 class	Char : public Converter
 {
@@ -15,6 +16,7 @@ class	Char : public Converter
 		Char(const Char& ref);
 		Char&	operator=(const Char& ref);
 
+		virtual bool	isOverFlow(char *argv1);
 		virtual void	convertToActual(const std::string& literal);
 };
 

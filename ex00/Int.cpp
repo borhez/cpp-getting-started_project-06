@@ -27,6 +27,19 @@ Int&	Int::operator=(const Int& ref)
 	return (*this);
 }
 
+bool Int::isOverFlow(char *argv1)
+{
+	long double num = std::strtold(argv1, NULL);
+
+	if (num < std::numeric_limits<int>::min() ||  num > std::numeric_limits<int>::max())
+	{
+		std::cout<<"Int: Can't convert. Overflow."<<std::endl;
+		return true;
+	}
+	return false;
+}
+
+
 void	Int::convertToActual(const std::string &literal)
 {
 	if (this->getType() == CHAR)

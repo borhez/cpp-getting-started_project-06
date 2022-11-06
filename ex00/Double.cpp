@@ -1,4 +1,5 @@
 #include "Double.hpp"
+#include <cmath>
 
 Double::Double()
 {
@@ -25,6 +26,22 @@ Double&	Double::operator=(const Double& ref)
 {
 	Converter::operator=(ref);
 	return (*this);
+}
+
+bool Double::isOverFlow(char *argv1)
+{
+	long double num = std::strtold(argv1, NULL);
+
+	if (isinf(num))
+	{
+		return false;
+	}
+	if (num < -(std::numeric_limits<double>::max()) ||  num > std::numeric_limits<double>::max())
+	{
+		std::cout<<"double: Can't convert. Overflow."<<std::endl;
+		return true;
+	}
+	return false;
 }
 
 void	Double::convertToActual(const std::string &literal)
