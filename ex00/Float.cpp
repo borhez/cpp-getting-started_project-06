@@ -31,7 +31,13 @@ bool Float::isOverFlow(char *argv1)
 
 	if (isinf(num))
 	{
-		return false;
+		if (argv1[0] == '+')
+			std::cout<<"float: +inff"<<std::endl;
+		else if (argv1[0] =='-')
+			std::cout<<"float: -inff"<<std::endl;
+		else std::cout<< "float: inff"<<std::endl;
+
+		return true;
 	}
 
 	if (num < -(std::numeric_limits<float>::max()) ||  num > std::numeric_limits<float>::max())
@@ -50,27 +56,9 @@ void	Float::convertToActual(const std::string &literal)
 		return ;
 	}
 
-	if (!isPossibleNumber(literal))
-	{
-		if (literal.find("nan") != std::string::npos)
-		{
-			std::cout << "float: nanf" <<std::endl; return;
-		}
-		if (literal.find("+inf") != std::string::npos)
-		{
-			std::cout << "float: +inff" <<std::endl; return;
-		}
-		if (literal.find("-inf") != std::string::npos)
-		{
-			std::cout << "float: -inff" <<std::endl; return;
-		}
-		if (literal.find("inf") != std::string::npos)
-		{
-			std::cout << "float: inff" <<std::endl; return;
-		}
-	}
-	float f = static_cast<float>(std::atof(literal.c_str()));
-
+	long double f = std::strtold(literal.c_str(), NULL);
+	if (isnan(f))
+		{ std::cout << "float: " << f << 'f' << std::endl; return; }
 	std::cout << "float: " << f; 
 	if (floor(static_cast<double>(f)) == ceil(static_cast<double>(f)))
 		std::cout << ".0";/*for case: a./out 2.0 ; or a.out 11*/

@@ -24,7 +24,6 @@ class	Converter
 		int		getType(void) const;
 		char	getCharValue(void) const;
 		void	printCharValue(void) const;
-		bool	isPossibleNumber(const std::string& literal) const;
 		bool	isArgumentValid(const std::string& literal) const;
 		virtual bool	isOverFlow(char *arg) = 0;
 		virtual void	convertToActual(const std::string& literal) = 0;

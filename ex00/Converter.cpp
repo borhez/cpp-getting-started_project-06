@@ -1,12 +1,5 @@
 #include "Converter.hpp"
 
-bool	Converter::isPossibleNumber(const std::string& literal) const
-{
-	if (literal.find("nan") != std::string::npos || literal.find("inf") != std::string::npos)
-		return (false);
-	return (true);
-}
-
 void	Converter::setType(const std::string& literal)
 {
 	if (literal.find('.') != std::string::npos && literal.find('f') != std::string::npos)

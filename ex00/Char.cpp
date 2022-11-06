@@ -1,4 +1,5 @@
 #include "Char.hpp"
+#include <cmath>
 
 Char::Char()
 {
@@ -31,6 +32,11 @@ bool Char::isOverFlow(char *argv1)
 {
 	long double num = std::strtold(argv1, NULL);
 
+	if (isnan(num) || isinf(num))
+	{
+		std::cout << "char: Impossible" << std::endl; return true;
+	}
+
 	if (num < std::numeric_limits<char>::min() ||  num > std::numeric_limits<char>::max())
 	{
 		std::cout<<"char: Can't convert. Overflow."<<std::endl;
@@ -44,11 +50,6 @@ void	Char::convertToActual(const std::string &literal)
 	if (this->getType() == CHAR)
 	{	
 		std::cout << "char: " << literal << std::endl;
-		return ;
-	}
-	if (!isPossibleNumber(literal))
-	{
-		std::cout << "char: Impossible" << std::endl;
 		return ;
 	}
 

@@ -34,7 +34,13 @@ bool Double::isOverFlow(char *argv1)
 
 	if (isinf(num))
 	{
-		return false;
+		if (argv1[0] == '+')
+			std::cout<<"double: +inf"<<std::endl;
+		else if (argv1[0] =='-')
+			std::cout<<"double: -inf"<<std::endl;
+		else std::cout<< "double: inf"<<std::endl;
+
+		return true;
 	}
 	if (num < -(std::numeric_limits<double>::max()) ||  num > std::numeric_limits<double>::max())
 	{
@@ -52,27 +58,10 @@ void	Double::convertToActual(const std::string &literal)
 		return ;
 	}
 
-	if (!isPossibleNumber(literal))
-	{
-		if (literal.find("nan") != std::string::npos)
-		{
-			std::cout << "double: nan" <<std::endl; return;
-		}
-		if (literal.find("+inf") != std::string::npos)
-		{
-			std::cout << "double: +inf" <<std::endl; return;
-		}
-		if (literal.find("-inf") != std::string::npos)
-		{
-			std::cout << "double: -inf" <<std::endl; return;
-		}
-		if (literal.find("inf") != std::string::npos)
-		{
-			std::cout << "double: inf" <<std::endl; return;
-		}
-	}
+	long double d = std::strtold(literal.c_str(), NULL);
+	if (isnan(d))
+		{ std::cout << "double: " << d << std::endl; return; }
 
-	double d = static_cast<double>(std::atof(literal.c_str()));
 	std::cout << "double: " << d; 
 	if (floor(d) == ceil(d))
 		std::cout << ".0";
