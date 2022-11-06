@@ -37,9 +37,44 @@ void	identify(Base* p)
 			std::cout << "pointer-identify: C" << std::endl;
 	else
 			std::cout << "It's no class" << std::endl;
+}
+
+void	identify(Base &p)
+{
+	try
+	{
+		(void)dynamic_cast<A&>(p);
+		std::cout << "refference-identify: A" << std::endl;
+ 	}
+  	catch (const std::exception&) 
+	{
+    	try 
+		{
+      	(void)dynamic_cast<B&>(p);
+      	std::cout << "refference-identify: B" << std::endl;
+    	}
+		catch (const std::exception&) 
+		{
+      		try
+			{
+			(void)dynamic_cast<C&>(p);
+			std::cout << "refference-identify: C" << std::endl;
+			}
+			catch (const std::exception&) 
+			{
+				std::cout << "It's no class" << std::endl;
+			}
+  		}
+	}
 }	
 
 int main()
 {
-    return 0;
+	Base *ptr = generate();
+	
+	identify(ptr);
+	identify(*ptr);
+	
+	delete ptr;
+	return 0;
 }
