@@ -57,9 +57,7 @@ void	Double::convertToActual(const std::string &literal)
 
 	double d = static_cast<double>(std::atof(literal.c_str()));
 	std::cout << "double: " << d; 
-	if (this->getType() == INT && isPossibleNumber(literal))
-		std::cout << ".0";
-	else if (floor(d) == ceil(d))
+	if (floor(d) == ceil(d))
 		std::cout << ".0";
 	std::cout << std::endl;
 }

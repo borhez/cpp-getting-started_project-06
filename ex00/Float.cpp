@@ -43,23 +43,21 @@ void	Float::convertToActual(const std::string &literal)
 		}
 		if (literal.find("+inf") != std::string::npos)
 		{
-			std::cout << "float: +inf" <<std::endl; return;
+			std::cout << "float: +inff" <<std::endl; return;
 		}
 		if (literal.find("-inf") != std::string::npos)
 		{
-			std::cout << "float: -inf" <<std::endl; return;
+			std::cout << "float: -inff" <<std::endl; return;
 		}
 		if (literal.find("inf") != std::string::npos)
 		{
-			std::cout << "float: inf" <<std::endl; return;
+			std::cout << "float: inff" <<std::endl; return;
 		}
 	}
 	float f = static_cast<float>(std::atof(literal.c_str()));
 
 	std::cout << "float: " << f; 
-	if (this->getType() == INT && isPossibleNumber(literal))
-		std::cout << ".0";
-	else if (floor(static_cast<double>(f)) == ceil(static_cast<double>(f)))
-		std::cout << ".0";
+	if (floor(static_cast<double>(f)) == ceil(static_cast<double>(f)))
+		std::cout << ".0";/*for case: a./out 2.0 ; or a.out 11*/
 	std::cout << "f" << std::endl;
 }
