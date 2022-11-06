@@ -27,7 +27,7 @@ Int&	Int::operator=(const Int& ref)
 	return (*this);
 }
 
-void	Int::converToActual(const std::string &literal)
+void	Int::convertToActual(const std::string &literal)
 {
 	if (this->getType() == CHAR)
 	{	
@@ -35,9 +35,11 @@ void	Int::converToActual(const std::string &literal)
 		return ;
 	}
 	
-	int	i = static_cast<int>(std::atoi(literal.c_str()));
 	if (isPossibleNumber(literal))
+	{
+		int	i = static_cast<int>(std::atoi(literal.c_str()));
 		std::cout << "int: " << i << std::endl;
+	}
 	else
 		std::cout << "int: Impossible" << std::endl;
 }

@@ -16,7 +16,7 @@ class	Double : public Converter
 		Double(const Double& ref);
 		Double&	operator=(const Double& ref);
 
-		virtual void	converToActual(const std::string& literal);
+		virtual void	convertToActual(const std::string& literal);
 };
 
 #endif

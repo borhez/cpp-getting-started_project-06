@@ -15,7 +15,7 @@ class	Int : public Converter
 		Int(const Int& ref);
 		Int&	operator=(const Int& ref);
 
-		virtual void	converToActual(const std::string& literal);
+		virtual void	convertToActual(const std::string& literal);
 };
 
 #endif

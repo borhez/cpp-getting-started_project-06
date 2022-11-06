@@ -12,7 +12,7 @@ class	Converter
 		int			type;
 		char		charValue;
 		
-
+		
 	public:
 		Converter();
 		Converter(std::string& literal);
@@ -27,14 +27,11 @@ class	Converter
 		bool	isPossibleNumber(const std::string& literal) const;
 		bool	isArgumentValid(const std::string& literal) const;
 		
-		virtual void	converToActual(const std::string& literal) = 0;
+		virtual void	convertToActual(const std::string& literal) = 0;
 };
 
-enum	Type
+enum
 {
-	CHAR = 0,
-	INT,
-	FLOAT,
-	DOUBLE,
+	CHAR = 0, INT, FLOAT, DOUBLE
 };
 #endif

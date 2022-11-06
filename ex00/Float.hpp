@@ -16,7 +16,7 @@ class	Float : public Converter
 		Float(const Float& ref);
 		Float&	operator=(const Float& ref);
 
-		virtual void	converToActual(const std::string& literal);
+		virtual void	convertToActual(const std::string& literal);
 };
 
 #endif

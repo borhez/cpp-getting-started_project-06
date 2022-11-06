@@ -15,7 +15,7 @@ class	Char : public Converter
 		Char(const Char& ref);
 		Char&	operator=(const Char& ref);
 
-		virtual void	converToActual(const std::string& literal);
+		virtual void	convertToActual(const std::string& literal);
 };
 
 #endif

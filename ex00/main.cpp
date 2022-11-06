@@ -10,7 +10,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "Usage: ./converter <literal>" << std::endl;
+		std::cerr << "Try: ./a.out <literal>" << std::endl;
 		return (1);	
 	}
 	std::string str(argv[1]);
@@ -30,9 +30,9 @@ int	main(int argc, char **argv)
 	floatConverter.setType(str);
 	intConverter.setType(str);
 
-	charConverter.converToActual(str);
-	intConverter.converToActual(str);
-	floatConverter.converToActual(str);
-	doubleConverter.converToActual(str);
+	charConverter.convertToActual(str);
+	intConverter.convertToActual(str);
+	floatConverter.convertToActual(str);
+	doubleConverter.convertToActual(str);
 	return (0);
 }

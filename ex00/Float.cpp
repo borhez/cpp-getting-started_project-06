@@ -27,7 +27,7 @@ Float&	Float::operator=(const Float& ref)
 	return (*this);
 }
 
-void	Float::converToActual(const std::string &literal)
+void	Float::convertToActual(const std::string &literal)
 {
 	if (this->getType() == CHAR)
 	{	
@@ -35,7 +35,27 @@ void	Float::converToActual(const std::string &literal)
 		return ;
 	}
 
+	if (!isPossibleNumber(literal))
+	{
+		if (literal.find("nan") != std::string::npos)
+		{
+			std::cout << "float: nanf" <<std::endl; return;
+		}
+		if (literal.find("+inf") != std::string::npos)
+		{
+			std::cout << "float: +inf" <<std::endl; return;
+		}
+		if (literal.find("-inf") != std::string::npos)
+		{
+			std::cout << "float: -inf" <<std::endl; return;
+		}
+		if (literal.find("inf") != std::string::npos)
+		{
+			std::cout << "float: inf" <<std::endl; return;
+		}
+	}
 	float f = static_cast<float>(std::atof(literal.c_str()));
+
 	std::cout << "float: " << f; 
 	if (this->getType() == INT && isPossibleNumber(literal))
 		std::cout << ".0";

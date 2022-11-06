@@ -27,7 +27,7 @@ Char&	Char::operator=(const Char& ref)
 	return (*this);
 }
 
-void	Char::converToActual(const std::string &literal)
+void	Char::convertToActual(const std::string &literal)
 {
 	if (this->getType() == CHAR)
 	{	
