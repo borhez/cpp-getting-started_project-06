@@ -1,5 +1,5 @@
 NAME= a.out
-SRC= main.cpp A.cpp B.cpp C.cpp Base.cpp
+SRC= main.cpp Base.cpp
 OBJ= $(SRC:%.cpp=%.o)
 HEADERS= A.hpp B.hpp C.hpp Base.hpp
 FLAGS= -g -Werror -Wextra -Wall
