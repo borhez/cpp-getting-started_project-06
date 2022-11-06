@@ -1,7 +1,7 @@
 NAME= a.out
-SRC= main.cpp
+SRC= main.cpp Char.cpp Double.cpp Int.cpp Float.cpp Converter.cpp
 OBJ= $(SRC:%.cpp=%.o)
-HEADERS= 
+HEADERS= Char.hpp Double.hpp Int.hpp Float.hpp Converter.hpp
 FLAGS= -g -Werror -Wextra -Wall
 CC= c++ -std=c++98
 

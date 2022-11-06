@@ -1,4 +1,10 @@
-#include <iostream>
+#include "Converter.hpp"
+#include "Char.hpp"
+#include "Double.hpp"
+#include "Float.hpp"
+#include "Int.hpp"
+
+#include <iomanip>
 
 int	main(int argc, char **argv)
 {
@@ -13,6 +19,20 @@ int	main(int argc, char **argv)
 	Double	d(str);
 	Float	f(str);
 	Int		i(str);
-	
-	return 0;
+
+	Converter	&charConverter = c;
+	Converter	&doubleConverter = d;
+	Converter	&floatConverter = f;
+	Converter	&intConverter = i;
+
+	charConverter.setType(str);
+	doubleConverter.setType(str);
+	floatConverter.setType(str);
+	intConverter.setType(str);
+
+	charConverter.converToActual(str);
+	intConverter.converToActual(str);
+	floatConverter.converToActual(str);
+	doubleConverter.converToActual(str);
+	return (0);
 }
