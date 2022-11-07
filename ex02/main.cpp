@@ -41,23 +41,28 @@ void	identify(Base* p)
 
 void	identify(Base &p)
 {
+	/*Error compilation: 
+		// if (dynamic_cast<A&>(p))
+		//	std::cout << "refference-identify: A" << std::endl;
+	*/
+
 	try
 	{
-		(void)dynamic_cast<A&>(p);
+		dynamic_cast<A&>(p);
 		std::cout << "refference-identify: A" << std::endl;
  	}
   	catch (const std::exception&) 
 	{
     	try 
 		{
-      	(void)dynamic_cast<B&>(p);
+      	dynamic_cast<B&>(p);
       	std::cout << "refference-identify: B" << std::endl;
     	}
 		catch (const std::exception&) 
 		{
       		try
 			{
-			(void)dynamic_cast<C&>(p);
+			dynamic_cast<C&>(p);
 			std::cout << "refference-identify: C" << std::endl;
 			}
 			catch (const std::exception&) 
@@ -71,7 +76,6 @@ void	identify(Base &p)
 int main()
 {
 	Base *ptr = generate();
-	
 	identify(ptr);
 	identify(*ptr);
 	
