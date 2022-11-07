@@ -1,5 +1,6 @@
 #include "Double.hpp"
 #include <cmath>
+#include <sstream>
 
 Double::Double()
 {
@@ -62,8 +63,14 @@ void	Double::convertToActual(const std::string &literal)
 	if (isnan(d))
 		{ std::cout << "double: " << d << std::endl; return; }
 
-	std::cout << "double: " << d; 
-	if (floor(d) == ceil(d))
+	std::cout << "double: " << d;
+
+	// if <d> without point:
+	std::ostringstream strs;
+	strs << d;
+	std::string str = strs.str();
+	if (str.find('.') == std::string::npos)
 		std::cout << ".0";
+
 	std::cout << std::endl;
 }

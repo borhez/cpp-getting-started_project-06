@@ -1,5 +1,6 @@
 #include "Float.hpp"
 #include <cmath>
+#include <sstream>
 
 Float::Float()
 {
@@ -59,8 +60,14 @@ void	Float::convertToActual(const std::string &literal)
 	long double f = std::strtold(literal.c_str(), NULL);
 	if (isnan(f))
 		{ std::cout << "float: " << f << 'f' << std::endl; return; }
-	std::cout << "float: " << f; 
-	if (floor(static_cast<double>(f)) == ceil(static_cast<double>(f)))
-		std::cout << ".0";/*for case: a./out 2.0 ; or a.out 11*/
+	std::cout << "float: " << f;
+
+// if <f> without point:
+	std::ostringstream strs;
+	strs << f;
+	std::string str = strs.str();
+	if (str.find('.') == std::string::npos)
+		std::cout << ".0";
+
 	std::cout << "f" << std::endl;
 }
